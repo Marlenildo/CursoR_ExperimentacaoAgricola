@@ -1,0 +1,43 @@
+project:
+  type: website
+
+website:
+  title: "Curso de R"
+  navbar:
+    background: "#000000"   # cor preta da barra
+    foreground: "#ffffff"   # texto branco
+    left:
+      - href: index.qmd
+        text: "Apresentação do curso"
+      - href: codigos.qmd
+        text: "Códigos"
+      - href: about.qmd
+        text: "Sobre"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    # include-in-header: toggle.js
+    toggle: true
+
+
+
+# project:
+#   type: website
+# 
+# website:
+#   title: "Curso de R"
+#   navbar:
+#     left:
+#       - href: index.qmd
+#         text: Apresentação do curso
+#       - codigos.qmd
+#       - about.qmd
+# 
+# format:
+#   html:
+#     theme: cosmo
+#     css: styles.css
+#     toc: true
+    

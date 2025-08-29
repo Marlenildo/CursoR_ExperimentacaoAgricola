@@ -1,0 +1,20 @@
+/* Barra de navegação preta */
+.q-navbar {
+  background-color: #000000 !important;
+}
+
+/* Texto branco */
+.q-navbar a {
+  color: #ffffff !important;
+}
+
+/* Cor ao passar o mouse */
+.q-navbar a:hover {
+  color: #ccff00 !important; /* amarelo esverdeado */
+}
+
+/* Cor quando ativo/selecionado */
+.q-navbar a.q-active {
+  color: #ccff00 !important; /* amarelo esverdeado */
+  font-weight: bold;
+}

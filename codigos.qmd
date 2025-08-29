@@ -1,0 +1,630 @@
+---
+title: "Exemplos de Códigos"
+author: "Marlenildo Melo"
+date: "2025-08-21"
+lang: "pt-BR"
+format:
+  html:
+    theme: cosmo
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+    toc_depth: 4
+    number_sections: true
+---
+
+# <i class="fas fa-code"></i> Exemplos de Códigos {#exemplos-de-códigos}
+
+## 🔹 Módulo 1 – Introdução ao R e Organização de Dados
+
+### Aula 1 – Instalação e primeiros passos
+
+-   Instale o R e o RStudio em seu computador.\
+
+O **R** é o programa principal, ou seja, a linguagem de programação e o ambiente de cálculo.\
+É nele que todos os comandos são processados e as análises estatísticas são realizadas.\
+Por isso, o primeiro passo é instalar o R no computador.\
+O download deve ser feito diretamente no site oficial do CRAN (Comprehensive R Archive Network):
+
+<i class="fa-brands fa-r-project"></i> <https://cran.r-project.org/>
+
+Ao abrir o link, basta escolher o sistema operacional do seu computador (Windows, macOS ou Linux) e seguir as instruções de instalação.\
+Com isso, você já terá o R funcionando, embora a sua interface seja bastante simples e pouco intuitiva para quem está começando.
+
+É justamente nesse ponto que entra o **RStudio**.\
+O RStudio não é um programa separado do R, mas sim uma **IDE (Integrated Development Environment)**, ou seja, um ambiente de desenvolvimento que facilita o uso do R.\
+Ele oferece uma interface gráfica amigável, onde você pode escrever códigos, visualizar gráficos, organizar projetos e instalar pacotes com muito mais facilidade.
+
+No entanto, é fundamental compreender que o RStudio **não funciona sozinho**.\
+Ele depende do R já instalado na máquina, pois é o R quem executa de fato os cálculos.\
+Por isso, a ordem correta é: primeiro instalar o R e, em seguida, instalar o RStudio.
+
+O download do RStudio pode ser feito no site oficial da Posit (empresa responsável pelo software):
+
+👉 <https://posit.co/download/rstudio-desktop/>
+
+Ao instalar os dois programas, você terá o **R** como motor de cálculo e o **RStudio** como painel de controle, trabalhando em conjunto.\
+Essa combinação é a mais utilizada no mundo acadêmico e profissional para análises estatísticas e ciência de dados.
+
+-   Conheça os principais painéis do RStudio:
+    -   *Console* (execução de comandos)\
+    -   *Source* (script)\
+    -   *Environment/History* (objetos)\
+    -   *Plots/Packages/Help*
+
+**Verificando versão do R**
+
+```{r}
+# Verificando versão do R
+version
+```
+
+**Citando o R**
+
+```{r}
+# Citação do R
+citation()
+```
+
+**Operações simples**
+
+```{r}
+# Operações simples
+
+## Soma
+2 + 2
+
+## Subtração
+7 - 2
+
+## Mutiplicação
+4 * 3
+
+## Divisão
+10 / 3
+
+## Raiz quadrada
+sqrt(25)
+```
+
+------------------------------------------------------------------------
+
+### Aula 2 – Objetos no R
+
+Nesta aula, aprendemos a criar e manipular objetos no R. Objetos são variáveis que armazenam valores ou resultados de cálculos, permitindo que possamos reutilizá-los em outras operações.
+
+No exemplo apresentado, criamos dois objetos numéricos:
+
+```{r}
+# Criando objetos
+x <- 5
+y <- 10
+```
+
+Aqui, x recebe o valor 5 e y recebe o valor 10. Em seguida, criamos um terceiro objeto chamado soma, que armazena a soma de x e y:
+
+```{r}
+soma <- x + y
+soma
+```
+
+Ao digitar apenas soma, o R retorna o valor armazenado neste objeto, que neste caso é 15.
+
+Este exemplo ilustra a forma básica de criar objetos no R e realizar operações simples com eles, fundamental para qualquer análise de dados ou programação no software.
+
+------------------------------------------------------------------------
+
+### Aula 3 – Pacotes
+
+No R, os pacotes são conjuntos de funções, dados e recursos que estendem as capacidades básicas do software, permitindo realizar análises mais complexas de forma prática e eficiente.
+
+No exemplo abaixo, veja como instalar alguns pacotes importantes um de cada vez:
+
+```{r}
+#| message: false
+#| warning: false
+#| eval: false
+
+# Carregando pacotes
+install.packages("tidyverse")   # Para manipulação e visualização de dados
+install.packages("readxl")      # Para ler arquivos do Excel
+install.packages("ExpDes.pt")   # Para planejamento e análise de experimentos agrícolas
+install.packages("easyanova")   # Para facilitar análises de variância
+install.packages("rstatix")     # Para estatísticas descritivas e testes inferenciais
+
+```
+
+Ouse preferir pode instalar vários de uma única vez:
+
+```{r}
+#| message: false
+#| warning: false
+#| eval: false
+
+# Carregando pacotes
+install.packages("tidyverse", "readxl", "ExpDes.pt", "easyanova", "rstatix")
+
+```
+
+No exemplo abaixo, carregamos alguns pacotes importantes:
+
+```{r}
+#| message: false
+#| warning: false
+
+# Carregando pacotes
+library(tidyverse)   # Para manipulação e visualização de dados
+library(readxl)      # Para ler arquivos do Excel
+library(ExpDes.pt)   # Para planejamento e análise de experimentos agrícolas
+library(easyanova)   # Para facilitar análises de variância
+library(rstatix)     # Para estatísticas descritivas e testes inferenciais
+
+```
+
+------------------------------------------------------------------------
+
+### Aula 4 – Importação de Dados
+
+**Importando dados**
+
+Importar dados para o R é um passo fundamental para qualquer análise. No R, é possível importar dados de diferentes formatos, o que é essencial para iniciar qualquer análise. O R permite ler diferentes formatos de arquivos, como CSV e Excel.
+
+```{r}
+
+# Importando CSV
+# dados_csv <- read.csv("meus_dados.csv", sep = ";", dec = ",")
+# Lê arquivos CSV, permitindo especificar o separador de colunas (sep) e o separador decimal (dec)
+
+# Importando Excel
+# dados_excel <- readxl::read_excel("meus_dados.xlsx")
+# Lê planilhas do Excel diretamente para o R
+
+# Importando arquivo de texto (TXT)
+# dados_txt <- read.table("meus_dados.txt", header = TRUE, sep = "\t", dec = ".")
+# Lê arquivos de texto, onde 'header = TRUE' indica que a primeira linha contém os nomes das colunas,
+# 'sep = "\t"' indica que as colunas são separadas por tabulação, e 'dec = "."' define o separador decimal
+
+```
+
+-   `read.csv()` lê arquivos no formato CSV (Comma-Separated Values), permitindo especificar o separador de colunas (sep) e o separador decimal (dec). É indicado para planilhas exportadas como CSV ou dados gerados por outros programas.
+
+-   `read_excel()` (do pacote `readxl`) lê arquivos do Excel (.xls ou .xlsx) diretamente, mantendo nomes das colunas e tipos de dados corretamente, o que facilita a importação de planilhas complexas sem precisar convertê-las.
+
+-   `read.table()` lê arquivos de texto simples (TXT ou outros delimitados), oferecendo flexibilidade para especificar se há cabeçalho (header = TRUE), o separador de colunas (sep) e o separador decimal (dec). É ideal para arquivos de texto com diferentes formatos de separação.
+
+**Visualizando os dados**
+
+Após a importação, podemos visualizar os dados para verificar se foram carregados corretamente: Após a importação, é importante visualizar os dados para conferir se foram carregados corretamente. Para isso, podem ser usadas funções como:
+
+-   `head()` (exibe as primeiras linhas),
+-   `summary()` (mostra resumo estatístico das variáveis),
+-   `str()` (mostra a estrutura do objeto) e
+-   `glimpse()` (exibe de forma compacta e legível a estrutura e os tipos das variáveis).
+
+```{r}
+
+# head(dados_csv)    # Mostra as primeiras linhas do conjunto de dados
+# summary(dados_csv) # Mostra um resumo estatístico das variáveis
+# str(dados_csv)     # Mostra a estrutura do objeto, incluindo tipos de variáveis e dimensões
+# glimpse(dados_csv)  # Mostra todas as variáveis, seus tipos e algumas observações de cada coluna
+
+```
+
+------------------------------------------------------------------------
+
+## 🔹 Módulo 2 – Manipulação e Exploração de Dados
+
+### Aula 5 – Tipos de Variáveis em R
+
+1.  **Variáveis numéricas**
+    -   **Contínuas (`numeric` / `dbl`)**: podem assumir qualquer valor dentro de um intervalo, incluindo decimais.\
+        **Exemplo:** Produtividade (t/ha), Área (m²)
+    -   **Discretas (`integer` / `int`)**: assumem apenas valores inteiros.\
+        **Exemplo:** Parcela (identificador das parcelas)
+2.  **Variáveis categóricas (fatores) (`factor` / `fct`)**
+    -   Representam categorias ou grupos que o R reconhece para análises estatísticas.\
+        **Exemplo:** Tratamento, Variedade\
+    -   Ideais para análise de variância e comparações entre grupos
+3.  **Variáveis de texto (`character` / `chr`)**
+    -   Contêm informações textuais ou descritivas, que não têm ordem ou significado numérico.\
+        **Exemplo:** Local (Norte, Sul, Leste)\
+    -   Não são usadas diretamente em cálculos estatísticos, mas servem para identificar ou agrupar dados
+4.  **Variáveis lógicas (`logical` / `logi`)**
+    -   Assumem apenas dois valores: `TRUE` ou `FALSE`\
+        **Exemplo:** Irrigado\
+    -   Úteis para condições, filtros e análises condicionais
+5.  **Outros tipos disponíveis em R**
+    -   **Complexo (`complex` / sem abreviação comum)**: números complexos, como `1+2i`
+    -   **Raw (`raw` / sem abreviação comum)**: representa dados brutos em bytes\
+    -   **Date (`Date` / sem abreviação comum)**: datas no formato `"YYYY-MM-DD"`\
+    -   **POSIXct / POSIXlt (`POSIXct` / `POSIXlt`)**: datas e horas com tempo
+    -   **Ordered factor (`ordered` / `ord`)**: fatores com ordem natural definida
+
+------------------------------------------------------------------------
+
+Neste exemplo, iremos **criar variáveis de diferentes tipos** em R — numéricas contínuas, numéricas discretas e categóricas (fatores) — e, em seguida, **identificar o tipo de cada variável** usando a função `class()`.
+
+Isso nos permite compreender como o R armazena cada tipo de dado e como ele será tratado em análises estatísticas.
+
+```{r}
+# Numérica contínua
+num_cont <- 3.5      # numeric / dbl
+class(num_cont) # Checando classes
+
+# Numérica discreta
+num_disc <- 5L       # integer / int
+class(num_disc)
+
+# Fator (categórica)
+trat <- factor(c("T1", "T2", "T3"))  # factor / fct
+class(trat)
+
+# Ordered factor
+ord_trat <- factor(c("Baixo", "Médio", "Alto"), ordered = TRUE) # ordered / ord
+class(ord_trat)
+
+# Character
+local <- c("Norte", "Sul")  # character / chr
+class(local)
+
+# Lógica
+irr <- c(TRUE, FALSE)       # logical / logi
+class(irr)
+
+# Complexo
+cplx <- 1 + 2i              # complex
+class(cplx)
+
+# Raw
+r <- charToRaw("A")         # raw
+class(r)
+
+# Datas
+d <- as.Date("2025-08-29")  # Date
+class(d)
+
+dt <- as.POSIXct("2025-08-29 12:00:00") # POSIXct
+class(dt)
+
+```
+
+<br>
+
+**Criando banco de dados fictício**
+
+Neste exemplo, iremos **criar um banco de dados fictício de um experimento agrícola** com diferentes tipos de variáveis: numéricas (contínuas e discretas), categóricas, lógicas e de texto.
+
+Em seguida, iremos **visualizar o banco de dados e identificar os tipos de variáveis**, para entender como o R armazena cada tipo e como podemos manipulá-las em análises estatísticas.
+
+```{r}
+# Exemplo de banco de dados de experimento agrícola
+dados_agro <- data.frame(
+  Parcela = 1:9,                               # Numérica discreta (identificação das parcelas)
+  Tratamento = factor(rep(c("T1", "T2", "T3"), each = 3)), # Fator (categórica nominal)
+  Variedade = factor(c("A", "A", "A", "B", "B", "B", "C", "C", "C")), # Fator (categórica nominal)
+  Area = c(10, 10, 10, 12, 12, 12, 11, 11, 11),  # Numérica contínua (m²)
+  Produtividade = c(30.5, 32.0, 31.0, 28.0, 29.5, 30.0, 33.0, 34.5, 32.5), # Numérica contínua (t/ha)
+  Irrigado = c(TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE),   # Lógica
+  Local = c("Norte", "Norte", "Norte", "Sul", "Sul", "Sul", "Leste", "Leste", "Leste") # Texto (character)
+)
+```
+
+<br>
+
+**Funções para Visualização e Estrutura de Dados no R**
+
+1.  **`head(dados_agro)`**\
+    Mostra as **primeiras linhas** do conjunto de dados.
+    -   Útil para ter uma **visão rápida** do conteúdo do banco, verificando se os dados foram importados corretamente.\
+    -   Exemplo de saída:
+
+```{r}
+head(dados_agro)
+```
+
+<br>
+
+2.  **`str(dados_agro)`**
+
+Mostra a **estrutura do objeto**, permitindo entender rapidamente como os dados estão organizados no R.
+
+Com essa função, é possível:
+
+-   Ver o **número de observações** (linhas) e o **número de variáveis** (colunas) do banco de dados, por exemplo, `9 obs. of 7 variables`.\
+-   Identificar o **tipo de cada variável**, como `int` (inteiro), `num` (numérico contínuo), `Factor` (categórica), `logi` (lógica/boolean) e `chr` (texto).\
+-   Conferir **alguns valores iniciais de cada coluna**, ajudando a verificar se os dados foram importados corretamente e se os tipos estão adequados para análise.
+
+Em resumo, `str()` é uma função essencial para **inspecionar rapidamente a estrutura e os tipos das variáveis**, antes de realizar qualquer análise estatística ou manipulação dos dados.
+
+```{r}
+str(dados_agro)
+
+```
+
+<br>
+
+3.  **`summary(dados_agro)`**
+
+Mostra um **resumo estatístico** das variáveis:\
+- Para variáveis numéricas: mínimo, máximo, média, quartis\
+- Para fatores: contagem de cada nível\
+- Para lógicas: contagem de `TRUE` e `FALSE`\
+- Útil para identificar tendências, valores extremos e distribuição dos dados.
+
+```{r}
+summary(dados_agro)
+
+```
+
+<br>
+
+4.  **`glimpse(dados_agro)`** (do pacote `dplyr`)
+
+Mostra a **estrutura dos dados de forma compacta e legível**, similar ao `str()`, mas em formato horizontal:
+
+-   Exibe todas as variáveis, seus tipos e algumas observações iniciais\
+-   Mais fácil de ler quando o banco de dados tem muitas colunas
+
+Exemplo de saída (resumida):
+
+```{r}
+glimpse(dados_agro)
+
+```
+
+------------------------------------------------------------------------
+
+### Aula 6 – Manipulação com dplyr
+
+```{r}
+# Exemplo fictício
+dados <- data.frame(
+  tratamento = rep(c("T1", "T2", "T3"), each = 4),
+  repeticao = rep(1:4, 3),
+  produtividade = c(30, 32, 28, 31, 35, 36, 34, 37, 25, 27, 26, 28)
+)
+
+# Selecionar colunas e filtrar
+dados %>% select(tratamento, produtividade) %>% filter(produtividade > 30)
+
+# Resumo estatístico
+dados %>%
+  group_by(tratamento) %>%
+  summarise(
+    media = mean(produtividade),
+    sd = sd(produtividade)
+  )
+```
+
+------------------------------------------------------------------------
+
+### Aula 7 – Estatística Descritiva e Gráficos
+
+```{r}
+# Histograma
+ggplot(dados, aes(x = produtividade)) +
+  geom_histogram(binwidth = 2, fill = "skyblue", color = "black")
+
+# Boxplot
+ggplot(dados, aes(x = tratamento, y = produtividade)) +
+  geom_boxplot(fill = "orange")
+
+```
+
+------------------------------------------------------------------------
+
+## 🔹 Módulo 3 – Análise de Variância (ANOVA)
+
+### Aula 8 – ANOVA em DIC
+
+```{r}
+# ANOVA usando aov()
+modelo <- aov(produtividade ~ tratamento, data = dados)
+summary(modelo)
+
+# ANOVA usando ExpDes.pt
+dic(
+  trat = dados$tratamento,
+  resp = dados$produtividade,
+  quali = TRUE,
+  mcomp = "tukey"
+)
+
+# ANOVA usando easyanova
+easyanova::ea1(dados[-2], design = 1, plot = 2)
+```
+
+------------------------------------------------------------------------
+
+### Aula 9 – Testes de Pressupostos
+
+```{r}
+# Normalidade
+shapiro.test(residuals(modelo))
+dados |> group_by(tratamento) |> rstatix::shapiro_test(produtividade)
+
+# Homogeneidade
+bartlett.test(produtividade ~ tratamento, data = dados)
+rstatix::levene_test(produtividade ~ tratamento, data = dados)
+```
+
+------------------------------------------------------------------------
+
+### Aula 10 – Comparações de Médias
+
+```{r}
+# Tukey no R base
+TukeyHSD(modelo)
+
+# Emmeans
+library(emmeans)
+emmeans(modelo, pairwise ~ tratamento)
+
+# rstatix
+dados %>% anova_test(produtividade ~ tratamento)
+dados %>% tukey_hsd(produtividade ~ tratamento)
+```
+
+------------------------------------------------------------------------
+
+### Aula 11 – ANOVA Fatorial
+
+```{r}
+# Exemplo com dois fatores
+dados2 <- expand.grid(
+  adubacao = c("A1", "A2"),
+  cultivar = c("C1", "C2", "C3"),
+  rep = 1:4
+)
+set.seed(123)
+dados2$produtividade <- rnorm(24, mean = 30, sd = 3)
+
+# ANOVA
+modelo2 <- aov(produtividade ~ adubacao * cultivar, data = dados2)
+summary(modelo2)
+
+# ExpDes.pt
+fat2.dic(
+  fator1 = dados2$adubacao,
+  fator2 = dados2$cultivar,
+  resp = dados2$produtividade,
+  quali = c(TRUE, TRUE),
+  mcomp = "tukey"
+)
+```
+
+------------------------------------------------------------------------
+
+## 🔹 Módulo 4 – Regressão
+
+### Aula 12 – Regressão Linear
+
+```{r}
+dose <- c(0, 50, 100, 150, 200)
+prod <- c(20, 28, 35, 40, 38)
+dados_reg <- data.frame(dose, prod)
+
+modelo_reg <- lm(prod ~ dose, data = dados_reg)
+a <- summary(modelo_reg)
+
+# Coeficientes
+coeficientes <- coef(modelo_reg)
+intercepto <- round(coeficientes[1], 2) # sem sinal extra
+slope <- formatC(coeficientes[2], format = "f", digits = 2, flag = "+") # sempre com sinal
+
+# Estatísticas do modelo
+r2 <- round(a$r.squared, 4)
+f_value <- a$fstatistic[1]
+df1 <- a$fstatistic[2]
+df2 <- a$fstatistic[3]
+p_value_anova <- pf(f_value, df1, df2, lower.tail = FALSE)
+
+
+
+
+# Equação no formato correto
+equacao <- paste0("y = ", intercepto, slope, "x")
+
+legenda <- paste0(
+  equacao,
+  "  R² = ", r2,
+  "\nF = ", f_value,
+  "; p = ", format.pval(p_value_anova, digits = 4, eps = 0.001)
+)
+
+
+
+dados_reg |>
+  ggplot(aes(x = dose, y = prod)) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  annotate("text",
+           x = 100, y = 10,
+           label = legenda,
+           hjust = 0, size = 5) +
+  labs(x = "Frequência de irrigação", y = "CRA (%)") +
+  theme_bw() +
+  theme(panel.grid = element_blank()) +
+  ylim(0, 50)
+
+```
+
+------------------------------------------------------------------------
+
+### Aula 13 – Regressão Quadrática
+
+```{r}
+# Ajustar modelo de regressão quadrática
+modelo_quad <- lm(prod ~ dose + I(dose^2), data = dados_reg)
+a <- summary(modelo_quad)
+a
+# Coeficientes da regressão quadrática (com mais casas decimais)
+coef_quad <- coef(modelo_quad)
+intercepto <- formatC(coef_quad[1], format = "f", digits = 4)
+linear     <- formatC(coef_quad[2], format = "f", digits = 4, flag = "+")
+quadratico <- formatC(coef_quad[3], format = "f", digits = 4, flag = "+") 
+# usei 6 casas para o termo quadrático porque geralmente é bem pequeno
+
+# Estatísticas do modelo
+r2 <- round(a$r.squared, 4)
+f_value <- a$fstatistic[1]
+df1 <- a$fstatistic[2]
+df2 <- a$fstatistic[3]
+p_value_anova <- pf(f_value, df1, df2, lower.tail = FALSE)
+
+# Equação para legenda
+equacao <- paste0("y = ", intercepto, " ", linear, "x ", quadratico, "x²")
+legenda <- paste0(
+  equacao,
+  "  R² = ", r2,
+  "\nF = ", round(f_value, 2),
+  "; p = ", format.pval(p_value_anova, digits = 4, eps = 0.001)
+)
+
+# Gráfico
+library(ggplot2)
+
+regressao_quad <- ggplot(dados_reg, aes(x = dose, y = prod)) +
+  geom_point(size = 3) +
+  stat_smooth(
+    method = "lm",
+    formula = y ~ x + I(x^2),
+    se = FALSE,
+    color = "black"
+  ) +
+  annotate("text", x = 50, y = 10, label = legenda, hjust = 0, size = 5) +
+  labs(x = "Dose", y = "Produção") +
+  theme_bw() +
+  theme(panel.grid = element_blank()) +
+  ylim(0, 50)
+
+# Exibir gráfico
+regressao_quad
+
+```
+
+## 🔹 Módulo 5 – Relatórios e Projeto Final
+
+### Aula 14 – Relatórios com RMarkdown
+
+-   Este próprio arquivo é um exemplo.\
+-   Pode ser exportado em HTML, Word ou PDF.
+
+------------------------------------------------------------------------
+
+## ✅ Projeto Final
+
+Analise um conjunto de dados agrícolas (real ou fornecido):\
+- Estruture os dados no Excel/CSV.\
+- Importe para o R.\
+- Realize ANOVA (com `aov()`, `ExpDes.pt`, `easyanova` e `rstatix`).\
+- Teste pressupostos.\
+- Se necessário, ajuste modelos de regressão.\
+- Gere gráficos com `ggplot2`.\
+- Organize os resultados em relatório RMarkdown.
+
+------------------------------------------------------------------------

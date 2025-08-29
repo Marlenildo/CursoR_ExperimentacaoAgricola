@@ -1,0 +1,29 @@
+---
+title: "Quem sou eu"
+format: html
+editor: visual
+---
+
+## <i class="fas fa-user"></i> Quem Sou
+  
+  Engenheiro Agrônomo, Doutor em Fitotecnia
+
+<i class="fa-solid fa-link"></i> [Linktree](https://linktr.ee/marlenildomelo)
+
+<i class="fas fa-envelope"></i> [marlenildo\@gmail.com](mailto:marlenildo@gmail.com)
+
+<i class="fab fa-whatsapp"></i> [(84) 98752-1095](https://wa.me/5584987521095)
+
+<br>
+  
+  ------------------------------------------------------------------------
+  
+  **Links Úteis**:
+  
+  -   [Estrutura do Curso](#estrutura-do-curso)
+    -   [Exemplos de Códigos](#exemplos-de-códigos)
+      
+      <i class="fa-brands fa-r-project"></i> *Este documento foi criado utilizando a própria linguagem R.*
+        
+        ------------------------------------------------------------------------
+        
